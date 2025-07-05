@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 
 import jakarta.persistence.*;
@@ -8,29 +8,28 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(schema = "movie", name = "actor")
+@Table(name = "actor",schema="movie")
 public class Actor {
+
     @Id
-    @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="actor_id")
     private Short id;
 
-    @Column(name = "first_name")
+    @Column(name="first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "last_update")
+    @Column(name="last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
     @ManyToMany
-    @JoinTable(
-            name = "film_actor",
-            joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"),
-            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id")
-    )
+    @JoinTable(name="film_actor",
+            joinColumns = @JoinColumn(name = "actor_id",referencedColumnName = "actor_id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id",referencedColumnName = "film_id"))
     private Set<Film> films;
 
     public Short getId() {

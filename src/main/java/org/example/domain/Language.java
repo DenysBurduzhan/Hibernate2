@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 
 import jakarta.persistence.*;
@@ -7,19 +7,20 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "movie", name = "language")
+@Table(name="language",schema="movie")
 public class Language {
+
     @Id
-    @Column(name = "language_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="language_id")
     private Byte id;
 
-    @Column(columnDefinition = "char")
+    @Column(columnDefinition="char")
     private String name;
 
-    @Column(name = "last_update")
+    @Column(name="last_update")
     @UpdateTimestamp
-    private LocalDateTime lastUpdate;
+    private LocalDateTime last_update;
 
     public Byte getId() {
         return id;
@@ -37,11 +38,11 @@ public class Language {
         this.name = name;
     }
 
-    public LocalDateTime getLastUpdate() {
-        return lastUpdate;
+    public LocalDateTime getLast_update() {
+        return last_update;
     }
 
-    public void setLastUpdate(LocalDateTime lastUpdate) {
-        this.lastUpdate = lastUpdate;
+    public void setLast_update(LocalDateTime last_update) {
+        this.last_update = last_update;
     }
 }

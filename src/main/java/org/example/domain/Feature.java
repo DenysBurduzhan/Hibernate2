@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 import static java.util.Objects.isNull;
 

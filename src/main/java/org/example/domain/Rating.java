@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 public enum Rating {
     G("G"),
@@ -12,5 +12,9 @@ public enum Rating {
 
     Rating(String value) {
         this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 }
